@@ -22,37 +22,42 @@ const Home = ({isAuth}) => {
     getPosts();
   },[toggle]);
 
-  
-
   return (
-    <div className="homePage">
-      {postLists.map((post) => {
-        return (
-          <div className="post" key={post.id}>
-            <div className="postHeader">
-              <div className="title">
-                <h1> {post.title}</h1>
+    <div className="home-container">
+      <div className="home-page">
+        {postLists.map((post) => {
+          return (
+            <div className="post" key={post.id}>
+              <div className="post-image">
+                <img src={post.image} alt="" />
               </div>
-              <div className="deletePost">
-                {isAuth && post.author.id === auth.currentUser.uid && (
-                  <button
-                    onClick={() => {
-                      deletePost(post.id);
-                    }}
-                  >
-                    {" "}
-                    &#128465;
-                  </button>
-                )}
+              <div className="post-header">
+                <div className="title">
+                  <h3> {post.title}</h3>
+                </div>
+                <div className="delete-post">
+                  {isAuth && post.author.id === auth.currentUser.uid && (
+                    <button
+                      onClick={() => {
+                        deletePost(post.id);
+                      }}
+                    >
+                      {" "}
+                      &#128465;
+                    </button>
+                  )}
+                </div>
               </div>
+              <div className="post-text"> <p>{post.postText}</p> </div>
+              <p>@{post.author.name}</p>
             </div>
-            <div className="postTextContainer"> {post.postText} </div>
-            <h3>@{post.author.name}</h3>
-          </div>
-        );
-      })}
+          );
+        })}
+      </div>
     </div>
+    
   )
 }
 
 export default Home
+
