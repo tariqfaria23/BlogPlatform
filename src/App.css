@@ -1,5 +1,6 @@
 :root{
   --clr-1 : #a18662;
+  --clr-text: #a47c48;
   --clr-2 : #c4ad90;
   --clr-3 : #EAD8C0;
   --clr-4 : #ebe7e0;
@@ -204,20 +205,23 @@ nav{
 
 /* -------------------------------HOME PAGE-------------------------------------*/
 
+.home-container{
+  padding-left: 40px;
+}
 
 .home-page {
   width: auto;
   min-height: calc(100vh - 80px);
   height: auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr; 
-  padding: 10px 15px;
-  grid-auto-rows: minmax(auto, 1fr);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: flex-start;
   
   .post{
-    width: 500px;
+    width: 480px;
     height: auto;
-    max-height: 430px;
+    max-height: 370px;
     /* background-color: var(--clr-background); */
     box-shadow: 0px 5px 8px -5px rgba(0, 0, 0, 0.3);
     margin: 10px;
@@ -226,13 +230,14 @@ nav{
     cursor: pointer;
 
     img{
-      height: 300px;
-      width: 500px;
+      height: 240px;
+      width: 480px;
       object-fit: cover;
       border-radius: 2px;
     }
   
     .post-header {
+      color: var(--clr-text);
       display: flex;
       justify-content: center;
       width: 98%;
@@ -254,14 +259,16 @@ nav{
       }
     }
     .post-text {
+      color: var(--clr-text);
       word-wrap: break-word;
       height: auto;
-      max-height: 57px;
+      max-height: 58px;
       width: 100%;
       overflow: hidden;
       overflow-y: auto;
     }
     p{
+      color: var(--clr-text);
       margin-top: 10px;
     }
   }
